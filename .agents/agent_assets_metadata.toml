@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "C66xcjs0vouj_oQTPB11_"
+uri = "file://artifacts/portfolio/public/images/case-web3.png"
+type = "image"
+title = "Web3 Dashboard UI"
+
+[[generated]]
+id = "iHEwMEFGT0INXB7bJQVXB"
+uri = "file://artifacts/portfolio/public/images/case-ai.png"
+type = "image"
+title = "AI Product UI"
+
+[[generated]]
+id = "BvonpPflh3oS4gY1suzNx"
+uri = "file://artifacts/portfolio/public/images/case-brand.png"
+type = "image"
+title = "Abstract 3D Brand Art"
+
+[[generated]]
+id = "ZdkJB1v5E5RQtVerKY9Qp"
+uri = "file://artifacts/portfolio/public/images/case-tech.png"
+type = "image"
+title = "Tech Mobile App UI"
