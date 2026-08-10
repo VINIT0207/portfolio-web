@@ -6,6 +6,7 @@ import CursorGlow from "@/components/blocks/CursorGlow";
 
 const WorkShowcase = lazy(() => import("@/components/blocks/WorkShowcase"));
 const Services = lazy(() => import("@/components/blocks/Services"));
+const AdvancedArchitectureSkills = lazy(() => import("@/components/blocks/AdvancedArchitectureSkills"));
 const Process = lazy(() => import("@/components/blocks/Process"));
 const CTA = lazy(() => import("@/components/blocks/CTA"));
 const Footer = lazy(() => import("@/components/blocks/Footer"));
@@ -30,6 +31,9 @@ export default function Home() {
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <Services />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <AdvancedArchitectureSkills />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <Process />

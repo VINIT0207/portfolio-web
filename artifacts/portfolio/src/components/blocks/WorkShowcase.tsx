@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const PROJECTS = [
   {
@@ -21,6 +23,38 @@ const PROJECTS = [
     color: "pink",
     repoUrl: "https://github.com/VINIT0207/flutter-teacher-attendance",
   },
+  {
+    id: 3,
+    title: "SubZero ❄️ (v1.0.0)",
+    category: "Android • Kotlin • Jetpack Compose",
+    tagline: "Privacy-First Subscription Management Vault",
+    status: "Production Released (v1.0.0 Stable Build)",
+    footprint: "5.17 MB Ultra-Lightweight Production Binary Asset",
+    techBadges: ["Kotlin", "Jetpack Compose", "Material 3", "Room DB", "Moshi", "Vertex AI API"],
+    achievements: [
+      "Mitigated launch-time compilation bottlenecks (classes4.dex errors) by deploying custom Gradle MultiDex keep rules to guarantee root-level entry point resolution.",
+      "Compressed production compilation layers down to an ultra-lightweight 5.17 MB binary footprint utilizing optimized ProGuard/R8 code shrinking parameters.",
+      "Engineered a secure local vault architecture utilizing hardware-backed Android Biometric APIs and auto-lock engine lifecycles (ON_STOP state management).",
+      "Implemented modular data mapping configurations supporting an on-demand AI Advisor loop utilizing Google Gemini 1.5 Flash."
+    ],
+    image: "/images/case-tech.png",
+    color: "cyan",
+    repoUrl: "https://github.com/VINIT0207/SubZero",
+    featured: true
+  },
+  {
+    id: 4,
+    title: "Next Project Commencing... 🤫",
+    category: "Upcoming • Suspense Teaser",
+    tagline: "Real-time. Full-duplex. Distributed.",
+    ecosystem: "Flutter ⇄ FastAPI (Python) ⇄ MySQL",
+    description: "Engineering an intensive, high-concurrency data system designed to handle massive data syncs seamlessly. Stay tuned for upcoming updates.",
+    actionBadge: "Loading Source Code...",
+    image: "/images/case-brand.png",
+    color: "violet",
+    repoUrl: "#",
+    upcoming: true
+  }
 ];
 
 export default function WorkShowcase() {
@@ -60,36 +94,103 @@ export default function WorkShowcase() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: false, amount: 0.3 }}
               transition={{ delay: i * 0.1 }}
-              className={`group ${i % 2 !== 0 ? "md:mt-16" : ""}`}
+              className={project.featured || project.upcoming ? "" : `group ${i % 2 !== 0 ? "md:mt-16" : ""}`}
             >
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 glass-panel p-2 block"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700"
-                />
-
-                <div className="absolute bottom-6 left-6 right-6 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/10 backdrop-blur-md border border-white/20 text-white inline-block mb-3">
-                    {project.category}
-                  </span>
-                  <h3 className="text-2xl font-display font-bold text-white">
-                    {project.title}
-                  </h3>
-                  <p className="text-white/70 text-sm mt-2">
-                    {project.description}
-                  </p>
+              {project.upcoming ? (
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden glass-panel border-2 border-dashed border-white/10 p-8 flex flex-col items-center justify-center text-center">
+                  <div className="absolute inset-0 bg-gradient-to-br from-neon-violet/5 to-transparent" />
+                  <div className="relative z-10 flex flex-col items-center gap-4">
+                    <span className="px-4 py-2 rounded-full text-xs font-bold bg-neon-violet/10 border border-neon-violet/20 text-neon-violet animate-pulse">
+                      {project.actionBadge}
+                    </span>
+                    <h3 className="text-2xl font-display font-bold text-white">
+                      {project.title}
+                    </h3>
+                    <p className="text-neon-violet/80 text-sm font-medium">
+                      {project.tagline}
+                    </p>
+                    <p className="text-white/40 text-xs font-mono">
+                      {project.ecosystem}
+                    </p>
+                    <p className="text-white/60 text-sm max-w-xs leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
                 </div>
-              </a>
+              ) : project.featured ? (
+                <motion.a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden glass-panel block"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative h-full flex flex-col justify-end p-6 z-10">
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <span className="px-2 py-1 rounded-full text-[10px] font-bold bg-neon-cyan/10 backdrop-blur-md border border-neon-cyan/20 text-neon-cyan">
+                        {project.status}
+                      </span>
+                      <span className="px-2 py-1 rounded-full text-[10px] font-bold bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                        {project.footprint}
+                      </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-neon-cyan/80 text-sm font-medium mb-3">
+                      {project.tagline}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {project.techBadges?.map((badge) => (
+                        <span
+                          key={badge}
+                          className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-white/5 border border-white/10 text-white/70"
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+                    <FeaturedAchievements achievements={project.achievements} />
+                  </div>
+                </motion.a>
+              ) : (
+                <a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 glass-panel p-2 block"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700"
+                  />
+
+                  <div className="absolute bottom-6 left-6 right-6 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/10 backdrop-blur-md border border-white/20 text-white inline-block mb-3">
+                      {project.category}
+                    </span>
+                    <h3 className="text-2xl font-display font-bold text-white">
+                      {project.title}
+                    </h3>
+                    <p className="text-white/70 text-sm mt-2">
+                      {project.description}
+                    </p>
+                  </div>
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
@@ -98,3 +199,43 @@ export default function WorkShowcase() {
   );
 }
 
+function FeaturedAchievements({ achievements }: { achievements?: string[] }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setOpen((v: boolean) => !v);
+        }}
+        className="inline-flex items-center gap-1 text-[11px] font-bold text-white/70 hover:text-white transition-colors"
+      >
+        {open ? "Hide details" : "See more"}
+        <ChevronDown
+          size={14}
+          className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? "max-h-96 mt-3 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="space-y-2">
+          {achievements?.map((achievement, idx) => (
+            <p
+              key={idx}
+              className="text-white/60 text-xs leading-relaxed flex items-start gap-2"
+            >
+              <span className="text-neon-cyan mt-0.5">›</span>
+              {achievement}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
