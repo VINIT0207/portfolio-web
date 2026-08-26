@@ -56,14 +56,10 @@ function SplineSceneInner({
   );
 
   useEffect(() => {
-    // Detect mobile or low-spec hardware to prevent lag
+    // Only switch to lightweight fallback on mobile viewports (< 768px)
     const checkLowPower = () => {
-      const isMobileScreen = window.innerWidth < 768;
-      const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 1;
-      const lowMemory = (navigator as any).deviceMemory && (navigator as any).deviceMemory < 4;
-      const lowCores = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
-
-      if (disableOnMobile || isMobileScreen || (isTouch && isMobileScreen) || lowMemory || lowCores) {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
         setIsLowPower(true);
       } else {
         setIsLowPower(false);
@@ -73,7 +69,7 @@ function SplineSceneInner({
     checkLowPower();
     window.addEventListener("resize", checkLowPower, { passive: true });
     return () => window.removeEventListener("resize", checkLowPower);
-  }, [disableOnMobile]);
+  }, []);
 
   useEffect(() => {
     if (isLowPower) return;

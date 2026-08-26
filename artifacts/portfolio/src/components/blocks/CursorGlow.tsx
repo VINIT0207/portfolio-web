@@ -3,29 +3,30 @@ import { useEffect, useRef, useState } from "react";
 export default function CursorGlow() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const [enabled, setEnabled] = useState(false);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
-    // Only enable on desktop with fine mouse pointer
-    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    const isFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (isTouch || !isFinePointer || window.innerWidth < 768) {
+    // Only disable on narrow mobile screens (< 768px)
+    if (typeof window === "undefined" || window.innerWidth < 768) {
       return;
     }
-    setEnabled(true);
 
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let ringX = mouseX;
-    let ringY = mouseY;
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
     let raf = 0;
-    let lastTime = 0;
+    let isVisible = false;
 
     const onMove = (e: MouseEvent) => {
+      if (!isVisible) {
+        isVisible = true;
+        setActive(true);
+      }
       mouseX = e.clientX;
       mouseY = e.clientY;
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
@@ -37,37 +38,35 @@ export default function CursorGlow() {
       ring.classList.toggle("cursor-ring--active", Boolean(interactive));
     };
 
-    const tick = (time: number) => {
-      // Throttle to ~30fps for minimal CPU impact
-      if (time - lastTime < 33) {
-        raf = requestAnimationFrame(tick);
-        return;
-      }
-      lastTime = time;
+    const onLeave = () => {
+      isVisible = false;
+      setActive(false);
+    };
 
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
+    const tick = () => {
+      ringX += (mouseX - ringX) * 0.22;
+      ringY += (mouseY - ringY) * 0.22;
       ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
       raf = requestAnimationFrame(tick);
     };
 
     window.addEventListener("mousemove", onMove, { passive: true });
     window.addEventListener("mouseover", onOver, { passive: true });
+    document.addEventListener("mouseleave", onLeave);
     raf = requestAnimationFrame(tick);
 
     return () => {
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseover", onOver);
+      document.removeEventListener("mouseleave", onLeave);
       cancelAnimationFrame(raf);
     };
   }, []);
 
-  if (!enabled) return null;
-
   return (
-    <>
+    <div style={{ opacity: active ? 1 : 0, transition: "opacity 0.2s ease" }}>
       <div ref={ringRef} className="cursor-ring" />
       <div ref={dotRef} className="cursor-dot" />
-    </>
+    </div>
   );
 }
