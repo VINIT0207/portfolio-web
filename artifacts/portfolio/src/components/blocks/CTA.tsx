@@ -55,11 +55,10 @@ export default function CTA() {
                 </a>
               </div>
 
-              <div className="relative w-full h-[320px] md:h-[600px] lg:h-[720px] pointer-events-auto">
+              <div className="relative w-full h-[360px] sm:h-[480px] md:h-[600px] lg:h-[720px] pointer-events-auto">
                 <SplineScene
                   scene="https://prod.spline.design/xAJek-ooh6iGJTup/scene.splinecode"
                   className="absolute inset-0 w-full h-full"
-                  disableOnMobile={true}
                   badgeText="Let's Build Systems"
                 />
               </div>

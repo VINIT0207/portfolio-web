@@ -359,25 +359,20 @@
   will-change: transform;
 }
 
-/* Hide the Spline watermark */
+/* Hide the Spline watermark cleanly */
 .spline-container a[href*="spline.design"],
-.spline-container a[href*="spline.design"] * {
+.spline-container a[href*="spline.design"] *,
+.spline-container a[href*="spline"],
+.spline-container a[aria-label*="Spline" i],
+.spline-container a[aria-label*="logo" i] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
 
-.spline-container::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 220px;
-  height: 80px;
-  background: #000;
-  pointer-events: auto;
-  z-index: 10;
+.spline-container {
+  touch-action: pan-y;
 }
 
 /* Robot speech bubble (only on the hero/background scene) */

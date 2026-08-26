@@ -6,7 +6,6 @@ interface SplineSceneProps {
   scene?: string;
   className?: string;
   badgeText?: string;
-  disableOnMobile?: boolean;
 }
 
 const ROBOT_QUESTIONS = [
@@ -18,23 +17,10 @@ const ROBOT_QUESTIONS = [
   "have you ever seen a thought up close?",
 ];
 
-function MobileNebulaFallback({ badgeText }: { badgeText?: string }) {
+function SceneLoadingFallback() {
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none flex items-center justify-center">
-      {/* High performance, GPU-accelerated CSS glowing nebula */}
-      <div className="absolute w-[280px] h-[280px] rounded-full bg-gradient-to-tr from-neon-pink/20 via-neon-violet/15 to-transparent blur-[50px] animate-pulse-slow will-change-transform" />
-      <div
-        className="absolute w-[240px] h-[240px] rounded-full bg-gradient-to-br from-neon-cyan/20 via-neon-violet/10 to-transparent blur-[40px] animate-pulse will-change-transform"
-        style={{ animationDuration: "5s" }}
-      />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neon-violet/10 via-transparent to-transparent" />
-
-      {badgeText !== undefined && (
-        <div className="robot-bubble">
-          <span className="robot-bubble-dot" />
-          <span className="robot-bubble-text">{badgeText || "Edge-AI System Online"}</span>
-        </div>
-      )}
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="w-8 h-8 rounded-full border-2 border-neon-cyan/20 border-t-neon-cyan animate-spin" />
     </div>
   );
 }
@@ -43,9 +29,7 @@ function SplineSceneInner({
   scene = "https://prod.spline.design/TXpGSG5LzpfsObtV/scene.splinecode",
   className = "absolute inset-0 w-full h-full",
   badgeText,
-  disableOnMobile = false,
 }: SplineSceneProps) {
-  const [isLowPower, setIsLowPower] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -56,27 +40,10 @@ function SplineSceneInner({
   );
 
   useEffect(() => {
-    // Only switch to lightweight fallback on mobile viewports (< 768px)
-    const checkLowPower = () => {
-      const isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        setIsLowPower(true);
-      } else {
-        setIsLowPower(false);
-      }
-    };
-
-    checkLowPower();
-    window.addEventListener("resize", checkLowPower, { passive: true });
-    return () => window.removeEventListener("resize", checkLowPower);
-  }, []);
-
-  useEffect(() => {
-    if (isLowPower) return;
     const container = containerRef.current;
     if (!container) return;
 
-    // Pause WebGL rendering when out of viewport
+    // Pause WebGL rendering when completely out of viewport to preserve performance
     const io = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
@@ -103,20 +70,12 @@ function SplineSceneInner({
       io.disconnect();
       observer.disconnect();
     };
-  }, [isLowPower]);
-
-  if (isLowPower) {
-    return (
-      <div className={`spline-container ${className}`}>
-        <MobileNebulaFallback badgeText={questionRef.current} />
-      </div>
-    );
-  }
+  }, []);
 
   return (
     <div ref={containerRef} className={`spline-container ${className}`}>
       {isVisible ? (
-        <Suspense fallback={<div className="w-full h-full" />}>
+        <Suspense fallback={<SceneLoadingFallback />}>
           <Spline scene={scene} style={{ width: "100%", height: "100%" }} />
         </Suspense>
       ) : (
