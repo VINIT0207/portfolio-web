@@ -1,10 +1,19 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CursorGlow() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
+    // Only enable on desktop with fine mouse pointer
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    const isFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (isTouch || !isFinePointer || window.innerWidth < 768) {
+      return;
+    }
+    setEnabled(true);
+
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
@@ -29,7 +38,7 @@ export default function CursorGlow() {
     };
 
     const tick = (time: number) => {
-      // Throttle to ~30fps for performance
+      // Throttle to ~30fps for minimal CPU impact
       if (time - lastTime < 33) {
         raf = requestAnimationFrame(tick);
         return;
@@ -42,8 +51,8 @@ export default function CursorGlow() {
       raf = requestAnimationFrame(tick);
     };
 
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseover", onOver);
+    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("mouseover", onOver, { passive: true });
     raf = requestAnimationFrame(tick);
 
     return () => {
@@ -52,6 +61,8 @@ export default function CursorGlow() {
       cancelAnimationFrame(raf);
     };
   }, []);
+
+  if (!enabled) return null;
 
   return (
     <>

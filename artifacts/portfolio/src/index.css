@@ -212,6 +212,49 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Mobile & Low-End Device Optimizations */
+@media (max-width: 768px) {
+  .glass-panel {
+    background: rgba(14, 14, 18, 0.88);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .starfield::before {
+    animation: none;
+    opacity: 0.2;
+    transform: none;
+    will-change: auto;
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 16px -4px var(--neon-cyan);
+  }
+  .glow-pink {
+    box-shadow: 0 0 16px -4px var(--neon-pink);
+  }
+  .glow-violet {
+    box-shadow: 0 0 16px -4px var(--neon-violet);
+  }
+
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 400px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .starfield::before, .marquee-track {
+    animation: none !important;
+  }
+}
+
 /* Custom glow classes */
 .glow-cyan {
   box-shadow: 0 0 40px -10px var(--neon-cyan);

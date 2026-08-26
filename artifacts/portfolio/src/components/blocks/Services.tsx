@@ -42,7 +42,8 @@ export default function Services() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-20"
         >
           <span className="text-neon-pink font-bold tracking-widest text-sm uppercase mb-4 block">Core Expertise</span>
@@ -61,8 +62,8 @@ export default function Services() {
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="group relative p-[1px] rounded-2xl overflow-hidden bg-white/5 hover:bg-white/10 transition-colors"
               >
                 {/* Glowing border effect on hover */}

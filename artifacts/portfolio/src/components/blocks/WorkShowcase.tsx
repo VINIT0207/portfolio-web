@@ -81,8 +81,9 @@ export default function WorkShowcase() {
       <div className="container px-6 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: false, amount: 0.3 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5 }}
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
         >
           <div>
@@ -108,10 +109,10 @@ export default function WorkShowcase() {
           {PROJECTS.map((project, i) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 80, scale: 0.92 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: false, amount: 0.3 }}
-              transition={{ delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
               className={project.featured || project.upcoming ? "" : `group ${i % 2 !== 0 ? "md:mt-16" : ""}`}
             >
               {project.upcoming ? (

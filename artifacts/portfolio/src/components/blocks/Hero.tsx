@@ -29,9 +29,9 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-end justify-start pt-20 pb-16 overflow-hidden">
       <div className="starfield" />
 
-      {/* Background soft glows */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-neon-pink/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-neon-violet/10 rounded-full blur-[150px] pointer-events-none" />
+      {/* Background soft glows (optimized for mobile) */}
+      <div className="absolute top-1/4 left-1/4 w-[260px] md:w-[500px] h-[260px] md:h-[500px] bg-neon-pink/10 rounded-full blur-[50px] md:blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[280px] md:w-[600px] h-[280px] md:h-[600px] bg-neon-violet/10 rounded-full blur-[60px] md:blur-[150px] pointer-events-none" />
 
       <div className="container relative z-10 px-6 pointer-events-none">
         <motion.div

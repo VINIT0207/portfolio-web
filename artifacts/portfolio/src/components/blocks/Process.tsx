@@ -28,14 +28,15 @@ export default function Process() {
   return (
     <section className="py-32 relative z-10 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute top-1/2 left-0 w-full h-[500px] -translate-y-1/2 bg-neon-cyan/5 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-full h-[300px] md:h-[500px] -translate-y-1/2 bg-neon-cyan/5 blur-[60px] md:blur-[150px] pointer-events-none" />
       
       <div className="container px-6 mx-auto">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
           <motion.div 
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5 }}
             className="lg:w-1/3 flex flex-col justify-center"
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Engineering Methodology</h2>
@@ -54,10 +55,10 @@ export default function Process() {
               {STEPS.map((step, i) => (
                 <motion.div 
                   key={step.num}
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 16 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  transition={{ delay: i * 0.15 }}
+                  viewport={{ once: true, amount: 0.05 }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
                   className="flex gap-8 group"
                 >
                   <div className="relative">
