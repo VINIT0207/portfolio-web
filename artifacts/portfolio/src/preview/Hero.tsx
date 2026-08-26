@@ -1,16 +1,7 @@
 import { motion } from "framer-motion";
 import { memo } from "react";
 
-const TAGS = [
-  'EDGE-AI',
-  'LLAMA.CPP',
-  'FLUTTER',
-  'KOTLIN 2.1',
-  'JETPACK COMPOSE',
-  'C++ NDK',
-  'SQLITE',
-  'DART 3'
-];
+const TAGS = ['PYTHON', 'JAVA', 'FLUTTER', 'DART', 'BACKEND', 'ANDROID', 'KOTLIN'];
 
 
 const TagItem = memo(({ tag, i }: { tag: string; i: number }) => (
@@ -47,12 +38,12 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] tracking-tight glow-text text-white">
-            Mobile Architect<br />
-            <span className="text-gradient">& Edge-AI Engineer</span>
+            Full-Stack<br />
+            <span className="text-gradient">App Developer</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-white/70 max-w-2xl font-light mt-4 leading-relaxed">
-            Specializing in client-side optimization, zero-cloud runtime paradigms, and extreme memory efficiency. Cross-compiling local ML inference (<span className="text-neon-cyan font-mono text-lg">llama.cpp</span>) and engineering production-hardened mobile systems.
+          <p className="text-xl md:text-2xl text-white/60 max-w-lg font-light mt-4">
+            Engineering robust client frontends and scalable, clean backend server code. I build high-performance mobile applications, distributed systems, and seamless user experiences.
           </p>
 
           <div className="flex items-center gap-4 mt-8 pointer-events-auto">

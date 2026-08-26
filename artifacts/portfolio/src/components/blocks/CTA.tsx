@@ -17,30 +17,41 @@ export default function CTA() {
             <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
               <h2 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 tracking-tight">
                 Ready to build <br />
-                <span className="text-gradient">impactful software solutions?</span>
+                <span className="text-gradient">production-grade systems?</span>
               </h2>
 
-              <p className="text-xl text-white/60 mb-10 max-w-xl">
-                Let's collaborate to create a digital experience that defies expectations.
+              <p className="text-xl text-white/70 mb-8 max-w-xl">
+                Open for independent startup contracts, milestone MVP builds, and on-device Edge-AI architectures.
               </p>
 
+              <div className="flex flex-wrap justify-center gap-3 mb-10 max-w-2xl">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-neon-cyan/10 border border-neon-cyan/20 text-neon-cyan">
+                  ⚡ Edge-AI Integration
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-neon-pink/10 border border-neon-pink/20 text-neon-pink">
+                  📱 Mobile MVP Sprints
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-neon-violet/10 border border-neon-violet/20 text-neon-violet">
+                  🔒 Cryptographic Vaults
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 border border-white/20 text-white">
+                  📊 Analytical SaaS
+                </span>
+              </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-12">
                 <a
-                  href="https://github.com/VINIT0207"
-                  target="_blank"
-                  rel="noreferrer"
+                  href="mailto:sharma.vinit.2007@gmail.com"
                   className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-bold text-lg hover:scale-105 transition-transform inline-flex justify-center"
                 >
-                  Start a Project
+                  Initiate Contract
                 </a>
                 <a
-                  href="mailto:vinit.sharma.2007@gmail.com"
+                  href="mailto:sharma.vinit.2007@gmail.com"
                   className="w-full sm:w-auto px-8 py-4 rounded-full glass-panel text-white font-bold text-lg hover:bg-white/10 transition-colors border border-white/20 inline-flex justify-center"
                 >
-                  vinit.sharma.2007@gmail.com
+                  sharma.vinit.2007@gmail.com
                 </a>
-
               </div>
 
               <div className="relative w-full h-[420px] md:h-[600px] lg:h-[720px]">

@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="font-display font-bold text-2xl tracking-tight text-white">Vinit Sharma</span>
             </Link>
             <p className="text-white/50 max-w-sm">
-              An elite digital design & 3D experience studio crafting immersive worlds for visionary brands.
+              Independent Mobile Software Architect & On-Device Edge-AI Engineer based in Mumbai, India. Engineering client-side optimization and zero-cloud systems.
             </p>
           </div>
           
@@ -26,18 +26,17 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com/in/vinit-sharma-87113b37b" target="_blank" rel="noreferrer" className="text-white/50 hover:text-neon-cyan transition-colors">
+                <a href="https://www.linkedin.com/in/vinit-sharma-87113b37b/" target="_blank" rel="noreferrer" className="text-white/50 hover:text-neon-cyan transition-colors">
                   LinkedIn
                 </a>
               </li>
-
               <li>
-                <a href="https://www.stackoverflow.com/" target="_blank" rel="noreferrer" className="text-white/50 hover:text-neon-violet transition-colors">
-                  Stack Overflow
+                <a href="https://portfolio-web-sigma-six.vercel.app/" target="_blank" rel="noreferrer" className="text-white/50 hover:text-neon-violet transition-colors">
+                  Live Portfolio
                 </a>
               </li>
               <li>
-                <a href="mailto:vinit.sharma.2007@gmail.com" className="text-white/50 hover:text-neon-pink transition-colors">
+                <a href="mailto:sharma.vinit.2007@gmail.com" className="text-white/50 hover:text-neon-pink transition-colors">
                   Email
                 </a>
               </li>
@@ -45,16 +44,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 font-display">Connect</h4>
+            <h4 className="text-white font-bold mb-6 font-display">Navigation</h4>
             <ul className="flex flex-col gap-3">
-              <li><Link href="#work" className="text-white/50 hover:text-white transition-colors">Projects</Link></li>
-              <li><Link href="#services" className="text-white/50 hover:text-white transition-colors">Competencies</Link></li>
+              <li><a href="#work" className="text-white/50 hover:text-white transition-colors">Architectures</a></li>
+              <li><a href="#services" className="text-white/50 hover:text-white transition-colors">Competencies</a></li>
+              <li><a href="#architecture" className="text-white/50 hover:text-white transition-colors">System Skills</a></li>
               <li>
                 <a
-                  href="mailto:vinit.sharma.2007@gmail.com"
+                  href="mailto:sharma.vinit.2007@gmail.com"
                   className="text-white/50 hover:text-neon-pink transition-colors"
                 >
-                  Let’s Talk
+                  Direct Contact
                 </a>
               </li>
             </ul>

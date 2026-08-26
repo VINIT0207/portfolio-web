@@ -5,37 +5,55 @@ import { ChevronDown } from "lucide-react";
 const PROJECTS = [
   {
     id: 1,
-    title: "FinPulse - Smart Expense Tracker",
-    category: "Flutter • Mobile Analytics",
-    description:
-      "A premium Flutter app with dark-mode UI, interactive analytics, and dynamic local database management.",
+    title: "FinPlus ⚡ (v1.0.0)",
+    category: "Flutter • Native C++ • Edge-AI",
+    tagline: "On-Device SLM Financial Assistant & Zero-Cloud Offline Inference",
+    status: "Production Released (v1.0.0 Stable Build)",
+    footprint: "100% Offline • <1.2GB RAM Boundary",
+    techBadges: ["Flutter", "Dart 3", "C++ (libllama.so)", "GGUF Q4_K_M", "SQLite (WAL)", "JNI / NDK", "BLoC"],
+    achievements: [
+      "Embedded Local Inference: Integrates a quantized 0.5B Parameter Small Language Model (SLM) executing natively on device silicon via cross-compiled C++ shared libraries (libllama.so).",
+      "16K Context Footprint Optimization: Configured custom low-bit KV cache limitations to safely run an expansive 16,384-token context window within a strict 1.2GB available RAM boundary without triggering OS Out-Of-Memory (OOM) process terminations.",
+      "Asynchronous Processing: Programmed background worker isolates using Dart threads to stream massive model data files to device storage registers without locking the main UI rendering thread.",
+      "Log-Aware Scheduler: Leverages native OS exact alarm layers to inspect the database, automatically suppressing upcoming hourly logs if active user modifications are registered."
+    ],
     image: "/images/case-web3.png",
     color: "cyan",
     repoUrl: "https://github.com/VINIT0207/flutter-expense-tracker",
+    featured: true
   },
   {
     id: 2,
-    title: "ClassTrack - Smart Attendance App",
-    category: "Cross-Platform • Classroom Tools",
-    description:
-      "A gesture-based classroom management tool with Excel import/export and visual student performance charts.",
+    title: "ClassTrack 📊 (v2.0.0)",
+    category: "Flutter • SQLite (WAL) • EdTech SaaS",
+    tagline: "Analytical Classroom Management & Local Data Portability Infrastructure",
+    status: "Production Released (v2.0.0 Upgrade)",
+    footprint: "Liquid Glassmorphism • Zero-Lag SQL Engine",
+    techBadges: ["Flutter", "Dart 3", "SQLite (WAL/FTS5)", "BLoC / Cubit", "Excel/CSV Engine", "AlarmManager", "BootReceiver"],
+    achievements: [
+      "Decoupled State Boundaries: Implemented a strict BLoC / Cubit architecture pattern, separating relational transaction loops into ViewModels to eliminate concurrent lifecycle crashes.",
+      "Advanced Local Analytics: Configured mathematical moving-average aggregations natively inside client memory blocks to output specialized statistics like a Consistency Index (%) and Recent Momentum (% trends).",
+      "Data Portability & I/O Engines: Engineered full JSON serialization pipelines enabling 1-tap workspace backup/restoration vectors and formatted Excel (.xlsx) and CSV data exporting.",
+      "Task Orchestration: Utilizes Android's AlarmManager and BootReceiver broadcast configurations to register native notification reminders that persist seamlessly across device reboots."
+    ],
     image: "/images/case-ai.png",
     color: "pink",
     repoUrl: "https://github.com/VINIT0207/flutter-teacher-attendance",
+    featured: true
   },
   {
     id: 3,
     title: "SubZero ❄️ (v1.0.0)",
-    category: "Android • Kotlin • Jetpack Compose",
-    tagline: "Privacy-First Subscription Management Vault",
+    category: "Native Android • Kotlin 2.1.0 • Jetpack Compose",
+    tagline: "Zero-Telemetry Cryptographic Subscription Security Vault",
     status: "Production Released (v1.0.0 Stable Build)",
-    footprint: "5.17 MB Ultra-Lightweight Production Binary Asset",
-    techBadges: ["Kotlin", "Jetpack Compose", "Material 3", "Room DB", "Moshi", "Vertex AI API"],
+    footprint: "5.17 MB Ultra-Lightweight Production Binary",
+    techBadges: ["Kotlin 2.1.0", "Jetpack Compose", "Material 3", "Encrypted Room DB", "AES-256 GCM", "Biometrics", "ProGuard/R8"],
     achievements: [
-      "Mitigated launch-time compilation bottlenecks (classes4.dex errors) by deploying custom Gradle MultiDex keep rules to guarantee root-level entry point resolution.",
-      "Compressed production compilation layers down to an ultra-lightweight 5.17 MB binary footprint utilizing optimized ProGuard/R8 code shrinking parameters.",
-      "Engineered a secure local vault architecture utilizing hardware-backed Android Biometric APIs and auto-lock engine lifecycles (ON_STOP state management).",
-      "Implemented modular data mapping configurations supporting an on-demand AI Advisor loop utilizing Google Gemini 1.5 Flash."
+      "Encrypted Storage Vaulting: Houses transactional rows inside a fully encrypted Room Database system to protect local logs against root data extractions.",
+      "Biometric & Hardware Lifecycle Locks: Interfaced native Biometric Prompt hooks (Fingerprint / Face ID) with app lifecycle listeners to enforce an immediate app auto-lock the exact moment the software thread moves to the background (ON_STOP).",
+      "Volatile RAM Decryption: Programmed native key-derivation algorithms to transform user passcodes into 256-bit AES cryptographic keys held strictly inside volatile memory registers, ensuring zero plain text footprints hit physical disk storage.",
+      "Compiler & MultiDex Optimization: Mitigated launch-time compilation bottlenecks (classes4.dex errors) with custom Gradle MultiDex keep rules and compressed the binary down to 5.17 MB via optimized ProGuard/R8 code shrinking."
     ],
     image: "/images/case-tech.png",
     color: "cyan",
@@ -44,15 +62,15 @@ const PROJECTS = [
   },
   {
     id: 4,
-    title: "Next Project Commencing... 🤫",
-    category: "Upcoming • Suspense Teaser",
-    tagline: "Real-time. Full-duplex. Distributed.",
-    ecosystem: "Flutter ⇄ FastAPI (Python) ⇄ MySQL",
-    description: "Engineering an intensive, high-concurrency data system designed to handle massive data syncs seamlessly. Stay tuned for upcoming updates.",
-    actionBadge: "Loading Source Code...",
+    title: "Distributed Data Engine ⚡",
+    category: "Active Engineering Lab • High-Concurrency",
+    tagline: "Real-Time Full-Duplex Edge Synchronization System",
+    ecosystem: "Flutter ⇄ FastAPI (Python) ⇄ MySQL / WAL",
+    description: "Engineering a high-concurrency distributed data system designed to seamlessly bridge local on-device caches with asynchronous backend replication pipelines under heavy throughput.",
+    actionBadge: "Engineering Lab Pipeline 🤫",
     image: "/images/case-brand.png",
     color: "violet",
-    repoUrl: "#",
+    repoUrl: "https://github.com/VINIT0207",
     upcoming: true
   }
 ];
@@ -69,10 +87,10 @@ export default function WorkShowcase() {
         >
           <div>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
-              My Projects
+              Production Architectures
             </h2>
-            <p className="text-white/50 text-lg max-w-md">
-              My finest digital experiences, crafted with precision and performance.
+            <p className="text-white/50 text-lg max-w-lg">
+              Production-hardened mobile systems, on-device Edge-AI runtimes, and local security vault architectures.
             </p>
           </div>
           <a
@@ -81,7 +99,7 @@ export default function WorkShowcase() {
             rel="noreferrer"
             className="px-6 py-3 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all font-medium inline-flex items-center justify-center"
           >
-            View All Work
+            View GitHub Profile
           </a>
 
         </motion.div>
@@ -106,7 +124,7 @@ export default function WorkShowcase() {
                     <h3 className="text-2xl font-display font-bold text-white">
                       {project.title}
                     </h3>
-                    <p className="text-neon-violet/80 text-sm font-medium">
+                    <p className="text-neon-violet/90 text-sm font-medium">
                       {project.tagline}
                     </p>
                     <p className="text-white/40 text-xs font-mono">
@@ -131,11 +149,17 @@ export default function WorkShowcase() {
                     decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="relative h-full flex flex-col justify-end p-6 z-10">
                     <div className="flex flex-wrap items-center gap-2 mb-3">
-                      <span className="px-2 py-1 rounded-full text-[10px] font-bold bg-neon-cyan/10 backdrop-blur-md border border-neon-cyan/20 text-neon-cyan">
+                      <span className={`px-2 py-1 rounded-full text-[10px] font-bold backdrop-blur-md border ${
+                        project.color === 'pink'
+                          ? 'bg-neon-pink/10 border-neon-pink/20 text-neon-pink'
+                          : project.color === 'violet'
+                          ? 'bg-neon-violet/10 border-neon-violet/20 text-neon-violet'
+                          : 'bg-neon-cyan/10 border-neon-cyan/20 text-neon-cyan'
+                      }`}>
                         {project.status}
                       </span>
                       <span className="px-2 py-1 rounded-full text-[10px] font-bold bg-white/10 backdrop-blur-md border border-white/20 text-white">
@@ -145,7 +169,13 @@ export default function WorkShowcase() {
                     <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-1">
                       {project.title}
                     </h3>
-                    <p className="text-neon-cyan/80 text-sm font-medium mb-3">
+                    <p className={`text-sm font-medium mb-3 ${
+                      project.color === 'pink'
+                        ? 'text-neon-pink/90'
+                        : project.color === 'violet'
+                        ? 'text-neon-violet/90'
+                        : 'text-neon-cyan/90'
+                    }`}>
                       {project.tagline}
                     </p>
                     <div className="flex flex-wrap gap-1.5 mb-3">
@@ -158,7 +188,7 @@ export default function WorkShowcase() {
                         </span>
                       ))}
                     </div>
-                    <FeaturedAchievements achievements={project.achievements} />
+                    <FeaturedAchievements achievements={project.achievements} color={project.color} />
                   </div>
                 </motion.a>
               ) : (
@@ -199,8 +229,15 @@ export default function WorkShowcase() {
   );
 }
 
-function FeaturedAchievements({ achievements }: { achievements?: string[] }) {
+function FeaturedAchievements({ achievements, color }: { achievements?: string[]; color?: string }) {
   const [open, setOpen] = useState(false);
+
+  const bulletColorClass =
+    color === "pink"
+      ? "text-neon-pink"
+      : color === "violet"
+      ? "text-neon-violet"
+      : "text-neon-cyan";
 
   return (
     <div>
@@ -228,9 +265,9 @@ function FeaturedAchievements({ achievements }: { achievements?: string[] }) {
           {achievements?.map((achievement, idx) => (
             <p
               key={idx}
-              className="text-white/60 text-xs leading-relaxed flex items-start gap-2"
+              className="text-white/70 text-xs leading-relaxed flex items-start gap-2"
             >
-              <span className="text-neon-cyan mt-0.5">›</span>
+              <span className={`${bulletColorClass} mt-0.5 font-bold`}>›</span>
               {achievement}
             </p>
           ))}

@@ -1,34 +1,41 @@
 import { motion } from "framer-motion";
-import { Cpu, Gauge, GitBranch, Lock } from "lucide-react";
+import { Code2, Database, Globe, HardDrive, Bug } from "lucide-react";
 
 const ARCHITECTURE_SKILLS = [
   {
-    title: "Zero-Cloud Local Inference (llama.cpp)",
-    description: "Cross-compiling C++ execution engines to run quantized SLMs natively on device silicon with zero network latency and total data privacy.",
-    icon: Cpu,
+    title: "MVVM Pattern",
+    description: "Client-side structural state decoupling and reactive data streams for maintainable, testable architectures.",
+    icon: Code2,
     color: "var(--neon-cyan)",
     glow: "glow-cyan"
   },
   {
-    title: "Memory-Bounded Systems (<1.2GB RAM)",
-    description: "Deploying custom low-bit KV cache memory bounds and Dart isolate streaming threads to prevent OS Out-Of-Memory (OOM) kernel terminations.",
-    icon: Gauge,
+    title: "CRUD Operations",
+    description: "Flawless structural implementation of database workflows to Create, Read, Update, and Delete relational datasets.",
+    icon: Database,
     color: "var(--neon-pink)",
     glow: "glow-pink"
   },
   {
-    title: "Decoupled State Boundaries (BLoC/Cubit)",
-    description: "Isolating asynchronous database transaction loops into ViewModels, eliminating UI thread lockups and concurrent lifecycle crashes.",
-    icon: GitBranch,
+    title: "RESTful APIs",
+    description: "Designing clean HTTP endpoint paths, structured routing inputs, and standardized JSON validation schemas.",
+    icon: Globe,
     color: "var(--neon-violet)",
     glow: "glow-violet"
   },
   {
-    title: "Zero-Trust Vaulting & Cryptographic Keys",
-    description: "Engineering volatile RAM key derivation (AES-256 GCM), Encrypted Room databases, and hardware Biometric Prompt hooks with auto-lock lifecycles.",
-    icon: Lock,
+    title: "Write-Ahead Logging (WAL)",
+    description: "Advanced local storage optimization to manage high-throughput database operations seamlessly.",
+    icon: HardDrive,
     color: "var(--neon-cyan)",
     glow: "glow-cyan"
+  },
+  {
+    title: "System-Level Debugging",
+    description: "Solving compilation pipeline blocks, MultiDex binary fragmentation, and bytecode shrinking controls.",
+    icon: Bug,
+    color: "var(--neon-pink)",
+    glow: "glow-pink"
   }
 ];
 
@@ -44,10 +51,10 @@ export default function AdvancedArchitectureSkills() {
           viewport={{ once: false, amount: 0.3 }}
           className="text-center max-w-2xl mx-auto mb-20"
         >
-          <span className="text-neon-violet font-bold tracking-widest text-sm uppercase mb-4 block">System Engineering</span>
+          <span className="text-neon-violet font-bold tracking-widest text-sm uppercase mb-4 block">System Expertise</span>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Advanced Architecture Skills</h2>
           <p className="text-white/50 text-lg">
-            Deep technical control over memory boundaries, native runtime compilation, reactive state streams, and cryptographic security.
+            Deep technical control over the engineering stack, from reactive state management to low-level storage optimization.
           </p>
         </motion.div>
 

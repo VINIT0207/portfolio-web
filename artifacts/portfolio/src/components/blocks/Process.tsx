@@ -1,10 +1,26 @@
 import { motion } from "framer-motion";
 
 const STEPS = [
-  { num: "01", title: "Architecture & Wireframing", desc: "I map the app’s structure, define flows, and prototype the critical screens before building." },
-  { num: "02", title: "UI Development (Flutter)", desc: "I craft responsive Flutter UI with polished animations and consistent, user-first design." },
-  { num: "03", title: "Backend Integration (Python/Java)", desc: "I build APIs and services that plug in cleanly—secure, scalable, and ready for growth." },
-  { num: "04", title: "Testing & Deployment", desc: "I validate performance, run thorough testing, and ship with confidence across platforms." }
+  {
+    num: "01",
+    title: "Constraint & Threat Modeling",
+    desc: "I establish physical memory boundaries (<1.2GB RAM budgets), analyze compute pipelines, and construct zero-cloud offline security models."
+  },
+  {
+    num: "02",
+    title: "Decoupled Architecture & State",
+    desc: "I design strict BLoC / Cubit state boundaries, isolate background worker threads from the main UI, and construct native JNI platform channels."
+  },
+  {
+    num: "03",
+    title: "Native Engineering & Storage Layers",
+    desc: "I cross-compile local C++ inference engines (llama.cpp), construct SQLite WAL & FTS5 indexes, and craft responsive Jetpack Compose & Flutter UIs."
+  },
+  {
+    num: "04",
+    title: "Bytecode Hardening & Matrix Builds",
+    desc: "I enforce ProGuard/R8 compiler obfuscation, resolve MultiDex keep rules, generate target ABI split binaries, and configure reboot-safe OS exact alarms."
+  }
 ];
 
 
@@ -22,9 +38,9 @@ export default function Process() {
             viewport={{ once: false, amount: 0.3 }}
             className="lg:w-1/3 flex flex-col justify-center"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">My Development Process</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Engineering Methodology</h2>
             <p className="text-white/50 text-lg mb-8">
-              A refined methodology for crafting applications. I treat code like canvas.
+              A systematic approach to architecting resilient, memory-bounded, and production-hardened software systems.
             </p>
 
             <div className="w-full h-[1px] bg-gradient-to-r from-neon-pink to-transparent opacity-50" />

@@ -1,32 +1,32 @@
 import { motion } from "framer-motion";
-import { Monitor, Cpu, Hexagon, Wand2 } from "lucide-react";
+import { Cpu, Smartphone, Database, ShieldCheck } from "lucide-react";
 
 const SERVICES = [
   {
-    title: "Cross-Platform Mobile Dev",
-    description: "Crafting fluid, native-feeling applications for iOS and Android using Flutter and Dart.",
-    icon: Monitor,
+    title: "Edge-AI & Embedded ML",
+    description: "Cross-compiling local llama.cpp inference engines, GGUF 4-bit quantization (Q4_K_M), JNI platform channels, and low-bit KV cache bounding (<1.2GB RAM).",
+    icon: Cpu,
     color: "var(--neon-cyan)",
     glow: "glow-cyan"
   },
   {
-    title: "Backend Engineering",
-    description: "Designing secure, scalable server-side architectures and APIs using Python and Java.",
-    icon: Hexagon,
+    title: "Polyglot Mobile Development",
+    description: "Architecting high-performance mobile systems across Flutter Core (Dart 3 Sound Null Safety) and Native Android (Kotlin 2.1.0 & Jetpack Compose) using BLoC & Cubit patterns.",
+    icon: Smartphone,
     color: "var(--neon-violet)",
     glow: "glow-violet"
   },
   {
-    title: "State Management",
-    description: "Architecting clean, maintainable app states using Provider, Riverpod, and MVVM patterns.",
-    icon: Cpu,
+    title: "Database Engines & Local I/O",
+    description: "Engineering ACID-compliant relational schemas in SQLite & Room with Write-Ahead Logging (WAL), FTS5 full-text indexing, and high-speed JSON/Excel serialization engines.",
+    icon: Database,
     color: "var(--neon-pink)",
     glow: "glow-pink"
   },
   {
-    title: "UI/UX Implementation",
-    description: "Translating complex designs into responsive, pixel-perfect, and animated user interfaces.",
-    icon: Wand2,
+    title: "DevOps & System Hardening",
+    description: "Implementing ProGuard/R8 compiler bytecode obfuscation, MultiDex keep rules, ABI split matrices (arm64-v8a), and reboot-persistent OS Exact Alarm orchestration.",
+    icon: ShieldCheck,
     color: "var(--neon-cyan)",
     glow: "glow-cyan"
   }
@@ -45,10 +45,10 @@ export default function Services() {
           viewport={{ once: false, amount: 0.3 }}
           className="text-center max-w-2xl mx-auto mb-20"
         >
-          <span className="text-neon-pink font-bold tracking-widest text-sm uppercase mb-4 block">Expertise</span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Core Competencies</h2>
+          <span className="text-neon-pink font-bold tracking-widest text-sm uppercase mb-4 block">Core Expertise</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Technical Competencies</h2>
           <p className="text-white/50 text-lg">
-            I don't just write code. I craft immersive applications that make users feel something.
+            Engineering robust client-side optimization, zero-cloud runtime paradigms, and extreme memory efficiency on physical hardware.
           </p>
 
         </motion.div>

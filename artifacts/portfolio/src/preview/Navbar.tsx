@@ -163,7 +163,7 @@ export default function Navbar() {
       </div>
 
       <div className="z-10 flex items-center gap-3">
-        <a href="#contact" className="hidden md:inline-flex relative px-6 py-2.5 rounded-full overflow-hidden group">
+        <button className="hidden md:inline-flex relative px-6 py-2.5 rounded-full overflow-hidden group">
           <span className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-pink via-neon-violet to-neon-cyan opacity-80 group-hover:opacity-100 transition-opacity" />
           <span className="absolute inset-[1.5px] rounded-full bg-black" />
           <span className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-pink/0 via-white/30 to-neon-cyan/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
@@ -175,7 +175,7 @@ export default function Navbar() {
               className="w-2 h-2 rounded-full bg-neon-cyan shadow-[0_0_10px_rgba(0,229,255,0.9)]"
             />
           </span>
-        </a>
+        </button>
 
         <button
           onClick={() => setMobileOpen((v) => !v)}
