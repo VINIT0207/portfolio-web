@@ -60,6 +60,12 @@ function SplineSceneInner({
       container.querySelectorAll("[id*='logo'], [class*='logo']").forEach((el) => {
         (el as HTMLElement).style.display = "none";
       });
+      
+      // Also hide canvas siblings which is typically where react-spline puts the logo
+      const canvas = container.querySelector("canvas");
+      if (canvas && canvas.nextElementSibling) {
+        (canvas.nextElementSibling as HTMLElement).style.display = "none";
+      }
     };
 
     hideBadge();

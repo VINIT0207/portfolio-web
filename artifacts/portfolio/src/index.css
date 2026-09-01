@@ -364,11 +364,14 @@
 .spline-container a[href*="spline.design"] *,
 .spline-container a[href*="spline"],
 .spline-container a[aria-label*="Spline" i],
-.spline-container a[aria-label*="logo" i] {
+.spline-container a[aria-label*="logo" i],
+.spline-container canvas + div,
+.spline-container > div > div {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
+  z-index: -9999 !important;
 }
 
 .spline-container {
