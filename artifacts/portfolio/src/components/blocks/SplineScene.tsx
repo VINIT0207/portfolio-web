@@ -89,7 +89,15 @@ function SplineSceneInner({
       )}
       
       {/* Physical overlay to mask the Spline logo since it uses shadow DOM in newer versions */}
-      <div className="absolute bottom-0 right-0 w-[180px] h-[70px] bg-background z-[999]" title="" />
+      <div 
+        className="absolute bottom-0 right-0 pointer-events-auto"
+        style={{ 
+          width: "250px", 
+          height: "100px", 
+          backgroundColor: "hsl(var(--background))", 
+          zIndex: 9999999 
+        }} 
+      />
 
       {badgeText !== undefined && (
         <div className="robot-bubble">
