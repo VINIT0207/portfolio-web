@@ -79,7 +79,7 @@ function SplineSceneInner({
   }, []);
 
   return (
-    <div ref={containerRef} className={`spline-container ${className}`}>
+    <div ref={containerRef} className={`spline-container relative ${className}`}>
       {isVisible ? (
         <Suspense fallback={<SceneLoadingFallback />}>
           <Spline scene={scene} style={{ width: "100%", height: "100%" }} />
@@ -87,6 +87,10 @@ function SplineSceneInner({
       ) : (
         <div className="w-full h-full bg-transparent" />
       )}
+      
+      {/* Physical overlay to mask the Spline logo since it uses shadow DOM in newer versions */}
+      <div className="absolute bottom-0 right-0 w-[180px] h-[70px] bg-background z-[999]" title="" />
+
       {badgeText !== undefined && (
         <div className="robot-bubble">
           <span className="robot-bubble-dot" />
